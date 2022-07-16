@@ -1,4 +1,5 @@
-.navbar-container {
-    background-color: #FFC700;
-    border: 1px solid blue;
+.main-nav {
+  padding-left: 40px;
+  min-height: 70px;
+  background-color: #FFC700;
 }
