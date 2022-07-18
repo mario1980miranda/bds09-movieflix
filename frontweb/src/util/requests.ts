@@ -1,7 +1,7 @@
+import { getAuthData } from './storage';
 import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
 import history from './history';
-import { getAuthData } from './storage';
 
 type LoginData = {
   username: string;

@@ -31,6 +31,7 @@ const Login = () => {
   const onSubmit = (formData: FormData) => {
     requestBackendLogin(formData)
       .then((response) => {
+        console.log(response);
         saveAuthData(response.data);
         setHasError(false);
         setAuthContextData({
@@ -89,7 +90,7 @@ const Login = () => {
             {errors.password?.message}
           </div>
         </div>
-        <button>FAZER LOGIN</button>
+        <button type='submit'>FAZER LOGIN</button>
       </form>
     </div>
   );

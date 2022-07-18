@@ -2,8 +2,8 @@ import { AuthContext } from 'AuthContext';
 import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getTokenData, isAuthenticated } from 'util/auth';
-import history from 'util/history';
 import { removeAuthData } from 'util/storage';
+import history from 'util/history';
 
 import './styles.css';
 
@@ -37,13 +37,13 @@ const Navbar = () => {
       <Link to="/" className="nav-logo-text">
         <h4>MovieFlix</h4>
       </Link>
-      <div className="nav-logout">
+      <div className="nav-logout"> 
         {authContextData.authenticated && (
           <>
             <span className="nav-user-name">
-              {authContextData.tokenData?.username}
+              {authContextData.tokenData?.userName}
             </span>
-            <a href="#logout" onClick={handleLogoutClick}>
+            <a href="#sair" onClick={handleLogoutClick}>
               SAIR
             </a>
           </>
