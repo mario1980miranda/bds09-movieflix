@@ -3,9 +3,8 @@ import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { requestBackendLogin } from 'util/requests';
 import { saveAuthData } from 'util/storage';
-import history from 'util/history';
 import { getTokenData } from 'util/auth';
-import { useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 type FormData = {
   username: string;
@@ -21,11 +20,14 @@ const Login = () => {
   const { from } = location.state || { from: { pathname: '/movies' } };
   const { setAuthContextData } = useContext(AuthContext);
   const [hasError, setHasError] = useState(false);
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
+
   const onSubmit = (formData: FormData) => {
     requestBackendLogin(formData)
       .then((response) => {
