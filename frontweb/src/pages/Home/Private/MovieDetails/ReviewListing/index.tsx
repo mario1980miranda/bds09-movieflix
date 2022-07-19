@@ -1,12 +1,14 @@
 import { Review } from 'types/review';
 
+import './styles.css';
+
 type Props = {
   reviews: Review[];
 };
 
 const ReviewListing = ({ reviews }: Props) => {
   return (
-    <div>
+    <div className="base-card">
       {reviews.map((review) => (
         <div key={review.id}>
           <>

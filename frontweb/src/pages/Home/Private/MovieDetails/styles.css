@@ -1,0 +1,26 @@
+.movie-details-container {
+  padding: 25px 10px;
+}
+
+.movie-details-container h1 {
+  font-size: 25px;
+  line-height: 33px;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .movie-details-container {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .movie-details-container {
+    padding: 40px;
+  }
+
+  .movie-details-container h1 {
+    margin-bottom: 25px;
+  }
+}

@@ -7,6 +7,8 @@ import { requestBackend } from 'util/requests';
 import ReviewForm from './ReviewForm';
 import ReviewListing from './ReviewListing';
 
+import './styles.css'
+
 type urlParams = {
   movieId: string;
 };
@@ -34,7 +36,7 @@ const handleInsertReview = (review : Review) => {
 };
 
   return (
-    <div className="container">
+    <div className="movie-details-container">
       <h1>Tela detalhes do filme id: {movieId}</h1>
       {hasAnyRole(['ROLE_MEMBER']) && (
         <ReviewForm movieId={movieId} onInsertReview={handleInsertReview}/>

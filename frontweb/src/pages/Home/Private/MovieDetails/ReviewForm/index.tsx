@@ -3,9 +3,11 @@ import { useForm } from 'react-hook-form';
 import { Review } from 'types/review';
 import { requestBackend } from 'util/requests';
 
+import './styles.css';
+
 type Props = {
   movieId: string;
-  onInsertReview : (review : Review) => void;
+  onInsertReview: (review: Review) => void;
 };
 
 type FormData = {
@@ -18,7 +20,7 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
     register,
     handleSubmit,
     formState: { errors },
-    setValue
+    setValue,
   } = useForm<FormData>();
 
   const onSubmit = (formData: FormData) => {
@@ -44,18 +46,23 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
 
   return (
     <div>
-      <div>
+      <div className="base-card review-form-card">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
+          <div className="mb-4">
             <input
               {...register('text', { required: 'Campo obrigatório' })}
               type="text"
               name="text"
               placeholder="Deixe sua avaliação aqui"
+              className={`form-control base-input ${
+                errors.text ? `is-invalid` : ''
+              }`}
             />
-            <div>{errors.text?.message}</div>
-            <button type="submit">SALVAR AVALIAÇÃO</button>
+            <div className="invalid-feedback d-block">
+              {errors.text?.message}
+            </div>
           </div>
+          <button type="submit">SALVAR AVALIAÇÃO</button>
         </form>
       </div>
     </div>
