@@ -37,7 +37,7 @@ const Navbar = () => {
       <Link to="/" className="nav-logo-text">
         <h4>MovieFlix</h4>
       </Link>
-      <div className="nav-logout"> 
+      <div className="nav-logout">
         {authContextData.authenticated && (
           <>
             {console.log(authContextData)}
