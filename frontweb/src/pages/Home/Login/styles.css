@@ -1,0 +1,46 @@
+.login-card {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.login-card h1 {
+  font-size: 36px;
+  line-height: 49px;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin: 40px 40px 30px 40px;
+  font-weight: 400;
+}
+
+.login-card input {
+  height: 50px;
+}
+
+.invalid-feedback {
+  color: red;
+  text-align: left;
+}
+
+.login-card button {
+  width: 100%;
+  height: 50px;
+  margin-top: 55px;
+  margin-bottom: 100px;
+  background: #ffc700;
+  border-radius: 4px;
+  border: 1px;
+}
+
+@media (min-width: 576px) {
+  .login-card {
+    padding: 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .login-card {
+    min-width: 470px;
+    max-width: 650px;
+  }
+}

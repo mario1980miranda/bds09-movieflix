@@ -6,6 +6,8 @@ import { saveAuthData } from 'util/storage';
 import { getTokenData } from 'util/auth';
 import { useHistory, useLocation } from 'react-router-dom';
 
+import './styles.css'
+
 type FormData = {
   username: string;
   password: string;
@@ -46,7 +48,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="base-card">
+    <div className="base-card login-card">
       <h1>LOGIN</h1>
       {hasError && (
         <div className="alert alert-danger">
