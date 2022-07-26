@@ -36,9 +36,10 @@ const GenreFilter = ({ onSubmitFilter }: Props) => {
     requestBackend({ url: '/genres', withCredentials: true }).then(
       (response) => {
         setSelectGenres(response.data);
+        setValue('genre',response.data[0])
       }
     );
-  }, []);
+  }, [setValue]);
 
   return (
     <div className="base-card">
