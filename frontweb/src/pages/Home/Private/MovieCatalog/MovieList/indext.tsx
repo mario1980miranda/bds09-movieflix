@@ -1,22 +1,24 @@
 import { AxiosRequestConfig } from 'axios';
-import Pagination from 'components/Pagination';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Movie } from 'types/movie';
 import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'util/requests';
-import GenreFilter from './GenreFilter';
+import Pagination from 'components/Pagination';
+import GenreFilter, { GenreFilterData } from './GenreFilter';
 
 import './styles.css';
 
 type ControlComponentsData = {
   activePage: number;
+  filterData: GenreFilterData;
 };
 
 const MovieList = () => {
   const [controlComponentsData, setControlComponentsData] =
     useState<ControlComponentsData>({
       activePage: 0,
+      filterData: { genre: null },
     });
 
   const [page, setPage] = useState<SpringPage<Movie>>();
@@ -24,15 +26,18 @@ const MovieList = () => {
   const handlePageChange = (pageNumber: number) => {
     setControlComponentsData({
       activePage: pageNumber,
+      filterData: controlComponentsData.filterData,
     });
   };
 
-  const handleSubmitFilter = () => {};
+  const handleSubmitFilter = (data: GenreFilterData) => {
+    setControlComponentsData({ activePage: 0, filterData: data });
+  };
 
   const getMoviesByGenre = useCallback(() => {
     const config: AxiosRequestConfig = {
       method: 'GET',
-      url: '/movies?genreId=1',
+      url: `/movies?genreId=${controlComponentsData.filterData.genre?.id}`,
       params: {
         page: controlComponentsData.activePage,
         size: 1,
@@ -51,19 +56,20 @@ const MovieList = () => {
   useEffect(() => {
     getMoviesByGenre();
   }, [getMoviesByGenre]);
+
   return (
     <>
-      <GenreFilter />
+      <GenreFilter onSubmitFilter={handleSubmitFilter} />
       <div className="row">
         {page?.content.map((movie) => (
-          <Link to={`/movies/${movie.id}`}>
-            <div key={movie.id} className="base-card movie-list-card">
+          <div key={movie.id} className="base-card movie-list-card">
+            <Link to={`/movies/${movie.id}`}>
               <img src={movie.imgUrl} alt={movie.title} />
               <h1>{movie.title}</h1>
               <h2>{movie.year}</h2>
               <p>{movie.subTitle}</p>
-            </div>
-          </Link>
+            </Link>
+          </div>
         ))}
       </div>
       <Pagination
