@@ -1,4 +1,5 @@
 import { AxiosRequestConfig } from 'axios';
+import Pagination from 'components/Pagination';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Movie } from 'types/movie';
@@ -50,18 +51,21 @@ const MovieList = () => {
     getMoviesByGenre();
   }, [getMoviesByGenre]);
   return (
-    <div className="row">
-      {page?.content.map((movie) => (
-        <Link to={`/movies/${movie.id}`}>
-          <div key={movie.id} className="base-card movie-list-card">
-            <img src={movie.imgUrl} alt={movie.title} />
-            <h1>{movie.title}</h1>
-            <h2>{movie.year}</h2>
-            <p>{movie.subTitle}</p>
-          </div>
-        </Link>
-      ))}
-    </div>
+    <>
+      <div className="row">
+        {page?.content.map((movie) => (
+          <Link to={`/movies/${movie.id}`}>
+            <div key={movie.id} className="base-card movie-list-card">
+              <img src={movie.imgUrl} alt={movie.title} />
+              <h1>{movie.title}</h1>
+              <h2>{movie.year}</h2>
+              <p>{movie.subTitle}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+      <Pagination />
+    </>
   );
 };
 
