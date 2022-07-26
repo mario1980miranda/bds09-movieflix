@@ -34,7 +34,7 @@ const MovieList = () => {
       url: '/movies?genreId=1',
       params: {
         page: controlComponentsData.activePage,
-        size: 3,
+        size: 1,
       },
     };
 
@@ -64,7 +64,12 @@ const MovieList = () => {
           </Link>
         ))}
       </div>
-      <Pagination />
+      <Pagination
+        forcePage={page?.number}
+        pageCount={page ? page.totalPages : 0}
+        range={3}
+        onChange={handlePageChange}
+      />
     </>
   );
 };
