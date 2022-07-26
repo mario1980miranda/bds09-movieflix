@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Movie } from 'types/movie';
 import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'util/requests';
+import GenreFilter from './GenreFilter';
 
 import './styles.css';
 
@@ -52,6 +53,7 @@ const MovieList = () => {
   }, [getMoviesByGenre]);
   return (
     <>
+      <GenreFilter />
       <div className="row">
         {page?.content.map((movie) => (
           <Link to={`/movies/${movie.id}`}>
