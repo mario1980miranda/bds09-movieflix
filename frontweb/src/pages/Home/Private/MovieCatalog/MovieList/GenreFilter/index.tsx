@@ -17,7 +17,7 @@ type Props = {
 const GenreFilter = ({ onSubmitFilter }: Props) => {
   const [selectGenres, setSelectGenres] = useState<Genre[]>();
 
-  const { register, handleSubmit, setValue, getValues, control } =
+  const { setValue, getValues, control } =
     useForm<GenreFilterData>();
 
   const handleChangeGenre = (value: Genre) => {
