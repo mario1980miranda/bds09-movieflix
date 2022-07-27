@@ -38,3 +38,17 @@
     width: 260px;
   }
 }
+
+@media (min-width: 768px) {
+  .genre-filter-select-card {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .genre-filter-select-card {
+    display: flex;
+    align-items: center;
+    height: 80px;
+  }
+}
