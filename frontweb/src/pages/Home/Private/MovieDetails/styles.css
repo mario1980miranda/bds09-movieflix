@@ -9,6 +9,18 @@
   color: #ffffff;
 }
 
+.movie-details-card {
+  max-width: 1100px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.movie-details-card img {
+  width: 100%;
+  height: auto;
+}
+
 @media (min-width: 768px) {
   .movie-details-container {
     padding: 30px;
