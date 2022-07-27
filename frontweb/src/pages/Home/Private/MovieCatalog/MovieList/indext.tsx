@@ -37,7 +37,9 @@ const MovieList = () => {
   const getMoviesByGenre = useCallback(() => {
     const config: AxiosRequestConfig = {
       method: 'GET',
-      url: controlComponentsData.filterData.genre ? "/movies?genreId="+controlComponentsData.filterData.genre.id : "/movies",
+      url: controlComponentsData.filterData.genre
+        ? '/movies?genreId=' + controlComponentsData.filterData.genre.id
+        : '/movies',
       params: {
         page: controlComponentsData.activePage,
         size: 4,
@@ -60,18 +62,24 @@ const MovieList = () => {
   return (
     <>
       <GenreFilter onSubmitFilter={handleSubmitFilter} />
+
       <div className="row">
+
         {page?.content.map((movie) => (
-          <div key={movie.id} className="base-card movie-list-card">
+          <div key={movie.id} className="col-sm-6 col-lg-6 col-xl-3">
             <Link to={`/movies/${movie.id}`}>
-              <img src={movie.imgUrl} alt={movie.title} />
-              <h1>{movie.title}</h1>
-              <h2>{movie.year}</h2>
-              <p>{movie.subTitle}</p>
+              <div className="base-card movie-list-card">
+                <img src={movie.imgUrl} alt={movie.title} />
+                <h1>{movie.title}</h1>
+                <h2>{movie.year}</h2>
+                <p>{movie.subTitle}</p>
+              </div>
             </Link>
           </div>
         ))}
+
       </div>
+
       <Pagination
         forcePage={page?.number}
         pageCount={page ? page.totalPages : 0}

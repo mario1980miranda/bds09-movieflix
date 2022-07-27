@@ -17,8 +17,7 @@ type Props = {
 const GenreFilter = ({ onSubmitFilter }: Props) => {
   const [selectGenres, setSelectGenres] = useState<Genre[]>();
 
-  const { setValue, getValues, control } =
-    useForm<GenreFilterData>();
+  const { setValue, getValues, control } = useForm<GenreFilterData>();
 
   const handleChangeGenre = (value: Genre) => {
     console.log('ENVIOU', value);
@@ -41,25 +40,23 @@ const GenreFilter = ({ onSubmitFilter }: Props) => {
   }, [setValue]);
 
   return (
-    <div className="base-card">
-      
-        <Controller
-          name="genre"
-          control={control}
-          render={({ field }) => (
-            <Select
-              {...field}
-              options={selectGenres}
-              classNamePrefix="product-filter-select"
-              placeholder="Categoria"
-              isClearable
-              onChange={(value) => handleChangeGenre(value as Genre)}
-              getOptionLabel={(genre: Genre) => genre.name}
-              getOptionValue={(genre: Genre) => String(genre.id)}
-            />
-          )}
-        />
-      
+    <div className="base-card genre-filter-select-card">
+      <Controller
+        name="genre"
+        control={control}
+        render={({ field }) => (
+          <Select
+            {...field}
+            options={selectGenres}
+            classNamePrefix="genre-filter-select"
+            placeholder="Generos"
+            isClearable
+            onChange={(value) => handleChangeGenre(value as Genre)}
+            getOptionLabel={(genre: Genre) => genre.name}
+            getOptionValue={(genre: Genre) => String(genre.id)}
+          />
+        )}
+      />
     </div>
   );
 };
