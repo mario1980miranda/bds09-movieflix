@@ -48,7 +48,7 @@ const GenreFilter = ({ onSubmitFilter }: Props) => {
           <Select
             {...field}
             options={selectGenres}
-            classNamePrefix="genre-filter-select"
+            classNamePrefix="genre-filter-select-component"
             placeholder="Generos"
             isClearable
             onChange={(value) => handleChangeGenre(value as Genre)}

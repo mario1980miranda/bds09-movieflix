@@ -1,17 +1,26 @@
 .catalog-container {
   font-size: 18px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .catalog-select-container {
   margin-bottom: 20px;
 }
 
-.catalog-select-card {
-  padding: 10px;
-  margin-bottom: 20px;
+@media (min-width: 576px) {
+  .catalog-container {
+    padding: 20px;
+  }
 }
 
-.catalog-select {
-  width: 250px;
+@media (min-width: 768px) {
+  .catalog-container {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  .catalog-container {
+    padding: 40px;
+  }
 }
