@@ -40,7 +40,7 @@ const MovieList = () => {
       url: controlComponentsData.filterData.genre ? "/movies?genreId="+controlComponentsData.filterData.genre.id : "/movies",
       params: {
         page: controlComponentsData.activePage,
-        size: 1,
+        size: 4,
       },
     };
 
