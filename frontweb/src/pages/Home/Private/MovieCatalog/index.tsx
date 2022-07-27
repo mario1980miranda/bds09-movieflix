@@ -1,4 +1,5 @@
 import MovieList from './MovieList/indext';
+
 import './styles.css';
 
 const MovieCatalog = () => {

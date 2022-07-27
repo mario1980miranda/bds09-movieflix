@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import Select from 'react-select';
 import { Genre } from 'types/genre';
 import { requestBackend } from 'util/requests';
+import Select from 'react-select';
 
 import './styles.css';
 
@@ -36,7 +36,6 @@ const GenreFilter = ({ onSubmitFilter }: Props) => {
     requestBackend({ url: '/genres', withCredentials: true }).then(
       (response) => {
         setSelectGenres(response.data);
-        setValue('genre',response.data[0])
       }
     );
   }, [setValue]);
@@ -53,6 +52,7 @@ const GenreFilter = ({ onSubmitFilter }: Props) => {
               options={selectGenres}
               classNamePrefix="product-filter-select"
               placeholder="Categoria"
+              isClearable
               onChange={(value) => handleChangeGenre(value as Genre)}
               getOptionLabel={(genre: Genre) => genre.name}
               getOptionValue={(genre: Genre) => String(genre.id)}

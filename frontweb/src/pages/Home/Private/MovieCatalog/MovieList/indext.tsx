@@ -37,7 +37,7 @@ const MovieList = () => {
   const getMoviesByGenre = useCallback(() => {
     const config: AxiosRequestConfig = {
       method: 'GET',
-      url: `/movies?genreId=${controlComponentsData.filterData.genre ? controlComponentsData.filterData.genre?.id : 1}`,
+      url: controlComponentsData.filterData.genre ? "/movies?genreId="+controlComponentsData.filterData.genre.id : "/movies",
       params: {
         page: controlComponentsData.activePage,
         size: 1,
