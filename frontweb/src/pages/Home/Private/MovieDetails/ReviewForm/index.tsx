@@ -1,5 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import { Review } from 'types/review';
 import { requestBackend } from 'util/requests';
 
@@ -37,9 +38,11 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
       .then((response) => {
         setValue('text', '');
         onInsertReview(response.data);
+        toast.info('Avaliação enviada com sucesso.')
         console.log('SUCESSO AO SALVAR', response);
       })
       .catch((error) => {
+        toast.error('O campo de avaliação deve ser preenchido.');
         console.log('FALHA AO SALVAR', error);
       });
   };
@@ -50,7 +53,7 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
             <input
-              {...register('text', { required: 'Campo obrigatório' })}
+              {...register('text')}
               type="text"
               name="text"
               placeholder="Deixe sua avaliação aqui"
