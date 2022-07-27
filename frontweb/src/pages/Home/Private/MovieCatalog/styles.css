@@ -1,5 +1,6 @@
 .catalog-container {
-  padding: 15px;
+  font-size: 18px;
+  padding: 20px;
 }
 
 .catalog-container h1 {
@@ -10,28 +11,15 @@
   margin-bottom: 50px;
 }
 
-.catalog-items {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  font-size: 18px;
-  line-height: 25px;
-  letter-spacing: -0.015em;
-  color: #ffffff;
-  height: 100px;
+.catalog-select-container {
+  margin-bottom: 20px;
 }
 
-@media (min-width: 1200px) {
-  .catalog-container {
-    padding: 40px;
-  }
+.catalog-select-card {
+  padding: 10px;
+  margin-bottom: 20px;
+}
 
-  .catalog-container h1 {
-    font-size: 48px;
-    line-height: 65px;
-  }
-
-  .catalog-items {
-    height: 150px;
-  }
+.catalog-select {
+  width: 250px;
 }
